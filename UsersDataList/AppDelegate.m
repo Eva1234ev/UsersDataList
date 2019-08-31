@@ -7,16 +7,25 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MMDrawerController.h"
+#import "MMDrawerController+Subclass.h"
+#import "AppStore.h"
 @interface AppDelegate ()
-
+@property (nonatomic,readwrite) AppStore *appStore;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    //Right slider
+    MMDrawerController *drawerController = (MMDrawerController *)self.window.rootViewController;
+    [drawerController setMaximumLeftDrawerWidth:253];
+    [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeBezelPanningCenterView];
+    [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    
+    self.appStore = [[AppStore alloc] init];
     return YES;
 }
 

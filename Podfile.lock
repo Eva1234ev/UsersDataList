@@ -1,0 +1,52 @@
+PODS:
+  - CCBottomRefreshControl (0.5.2)
+  - FMDB/FTS (2.7.5):
+    - FMDB/standard
+  - FMDB/standard (2.7.5)
+  - JSONModel (1.8.0)
+  - MMDrawerController (0.6.0):
+    - MMDrawerController/Core (= 0.6.0)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
+    - MMDrawerController/MMDrawerVisualStates (= 0.6.0)
+    - MMDrawerController/Subclass (= 0.6.0)
+  - "MMDrawerController+Storyboard (0.0.2)":
+    - MMDrawerController
+  - MMDrawerController/Core (0.6.0)
+  - MMDrawerController/MMDrawerBarButtonItem (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.6.0):
+    - MMDrawerController/Core
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
+
+DEPENDENCIES:
+  - CCBottomRefreshControl
+  - FMDB/FTS
+  - JSONModel
+  - MMDrawerController
+  - "MMDrawerController+Storyboard"
+  - SDWebImage
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CCBottomRefreshControl
+    - FMDB
+    - JSONModel
+    - MMDrawerController
+    - "MMDrawerController+Storyboard"
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  CCBottomRefreshControl: 389780b4488321c91d18f66a6da5ef9606df6de5
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
+  MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
+  "MMDrawerController+Storyboard": c98f86c0f32cdef1d466d19a7da3ad2fc6c6ac00
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+
+PODFILE CHECKSUM: 1fd40521dabe5809ca6b0bfe98f8fd297a48ee04
+
+COCOAPODS: 1.7.2
