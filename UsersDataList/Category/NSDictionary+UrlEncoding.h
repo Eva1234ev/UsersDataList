@@ -1,9 +1,8 @@
 //
-//  LogInViewController.m
-//  P2P Car Rent
 //
-//  Created by Artashes Ghazaryan on 10/5/17.
-//  Copyright © 2017 Artashes Ghazaryan. All rights reserved.
+//  Created by Eva on 31.08.2019.
+//  Copyright © 2019 Eva. All rights reserved.
+//
 //
 
 

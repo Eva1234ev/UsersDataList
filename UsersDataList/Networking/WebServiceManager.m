@@ -6,12 +6,10 @@
 //  Copyright © 2019 Eva. All rights reserved.
 //
 
-#import "WebServiceManage.h"
+#import "WebServiceManager.h"
 #import "NSDictionary+UrlEncoding.h"
 #import "JSON.h"
-#import "AppManager.h"
-
-
+#import "JSONModel.h"
 
 static NSString *apiUrl = @"https://reqres.in/api/";
 #define timeStamp [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000]
@@ -20,6 +18,7 @@ static NSString *apiUrl = @"https://reqres.in/api/";
 
 
 + ( NSDictionary *) getDataFrom:(NSString *)url{
+    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setHTTPMethod:@"GET"];
     [request setURL:[NSURL URLWithString:url]];
@@ -62,7 +61,6 @@ static NSString *apiUrl = @"https://reqres.in/api/";
     
     
     NSString* url = [NSString stringWithFormat:@"%@%@", apiUrl, method];
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
     
     [request setHTTPMethod:@"POST"];
@@ -93,49 +91,35 @@ static NSString *apiUrl = @"https://reqres.in/api/";
     
     
     NSString *method = [NSString stringWithFormat:@"users?page=%@", page];
-    
-    
-    
-    
     NSMutableURLRequest *request = [self requestForGetMethod:method withParams:nil];
-    
-    // [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     //  [request setValue:[AppManager sharedManager].token forHTTPHeaderField:@"authorization"];
     
     [self executeRequest:request withCompletion:handler];
     
 }
+
+
+
+
 + (NSMutableURLRequest *) requestForGetMethod:(NSString *)method withParams:(NSString *)params {
     
-    
-    
     NSString* url = [NSString stringWithFormat:@"%@%@", apiUrl, method];
-    
     if (params.length > 0) {
         
         url = [NSString stringWithFormat:@"%@%@?%@", apiUrl, method, params];
         
     }
-    
-    //        url =[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
-    
     [request setHTTPMethod:@"GET"];
-    
-    //    [request setValue:[AppManager sharedManager].language forHTTPHeaderField:@"lang"];
-    
-    
     
     return request;
     
 }
 
 + (void)executeRequest:(NSURLRequest*)request withCompletion:( void (^) (id response, NSError *error))handler  {
-    
-    
-    
+
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -143,33 +127,26 @@ static NSString *apiUrl = @"https://reqres.in/api/";
         NSLog(@"%@", dataString);
         
         if(response != nil){
-            
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-            
             NSLog(@"response status code: %ld", (long)[httpResponse statusCode]);
-            
-            if([httpResponse statusCode]!=200){
-                
-                error = @YES;
+            if ([httpResponse  statusCode] >= 200 && [httpResponse statusCode] < 300) {
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    
+                    handler([data objectFromJSONData], error);
+                    
+                });
                 
             }
-            
-            if([httpResponse statusCode]==401){
-                
-                //  [AppManager sharedManager].token = nil;
-                
-                
-                
+            else{
+                NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)[httpResponse  statusCode]);
+                return;
             }
             
         }
-        
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-            
-            handler([data objectFromJSONData], error);
-            
-        });
-        
+        else {
+            NSLog(@"dataTaskWithRequest nil response");
+            return;
+        }
     }] resume];
     
 }

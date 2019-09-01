@@ -7,11 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AppDelegate.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@protocol WebRequestResult1
+-(void) webResponse:(NSDictionary*)responseDictionary;
+@end
 
 @interface WebConnection : NSObject
+{
+    
+    __weak id<WebRequestResult1> delegate;
+    
+    NSMutableData *webData;
+    NSString *xmlData;
+    AppDelegate *appDelegate;
+}
+
+@property(weak,nonatomic)    id<WebRequestResult1> delegate;
+@property(strong,nonatomic) NSDictionary *responseDictionary;
+-(void) makeConnection :(NSMutableURLRequest*)req;
 
 @end
 
-NS_ASSUME_NONNULL_END

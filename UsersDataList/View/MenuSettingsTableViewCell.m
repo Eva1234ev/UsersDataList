@@ -7,7 +7,13 @@
 //
 
 #import "MenuSettingsTableViewCell.h"
+@interface MenuSettingsTableViewCell (){
 
+    __weak IBOutlet UIImageView *imgIcon;
+    __weak IBOutlet UILabel *lblMenu;
+}
+
+@end
 @implementation MenuSettingsTableViewCell
 
 - (void)awakeFromNib {
@@ -17,8 +23,19 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
+}
+
+
+- (void)setInfo:(NSDictionary *)info{
+    
+    NSString *langID = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *lang = [[NSLocale currentLocale] displayNameForKey:NSLocaleLanguageCode value:langID];
+    
+    [imgIcon setImage:[UIImage imageNamed:info[@"icon"]]];
+    //    imgIcon.frame = CGRectMake(imgIcon.frame.origin.x, imgIcon.frame.origin.y,img.size.width, img.size.height);
+    lblMenu.text =  info[@"name"];
 }
 
 @end

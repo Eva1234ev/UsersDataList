@@ -19,5 +19,9 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)registartionButtonAction:(UIButton *)sender {
+}
 
+- (IBAction)signInButtonAction:(UIButton *)sender {
+}
 @end

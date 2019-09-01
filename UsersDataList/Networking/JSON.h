@@ -6,12 +6,39 @@
 //  Copyright © 2019 Eva. All rights reserved.
 //
 
+
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+#pragma mark Deserializing methods
 
-@interface JSON : NSObject
+@interface NSString (JSONDeserializing)
+
+- (id)objectFromJSONString;
 
 @end
 
-NS_ASSUME_NONNULL_END
+@interface NSData (JSONDeserializing)
+
+- (id)objectFromJSONData;
+
+@end
+
+
+#pragma mark Serializing methods
+
+@interface NSString (JSONSerializing)
+- (NSData *)JSONData;
+- (NSString *)JSONString;
+@end
+
+@interface NSArray (JSONSerializing)
+- (NSData *)JSONData;
+- (NSString *)JSONString;
+@end
+
+@interface NSDictionary (JSONSerializing)
+- (NSData *)JSONData;
+- (NSString *)JSONString;
+@end
+
+

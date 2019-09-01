@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
+@class Pagination;
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString * const UserListDidChangeNotification;
+
 @interface UserListViewModel : NSObject
-
+- (instancetype)initList;
+@property (nonatomic, strong) Pagination *pagination;
+//@property (nonatomic, strong) NSMutableArray *users;
+- (void) makeRequest;
 @end
-
 NS_ASSUME_NONNULL_END

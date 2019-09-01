@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONModel/JSONModel.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface UserData : NSObject
-
+@protocol UserData
+@end
+@interface UserData : JSONModel
+@property (nonatomic) NSInteger id;
+@property (nonatomic) NSString *email;
+@property (nonatomic) NSString *first_name;
+@property (nonatomic) NSString *last_name;
+@property (nonatomic) NSString *avatar;
 @end
 
 NS_ASSUME_NONNULL_END

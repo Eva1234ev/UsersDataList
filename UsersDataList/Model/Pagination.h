@@ -7,11 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <JSONModel/JSONModel.h>
+#import "UserData.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Pagination : NSObject
+@protocol Pagination
 
+@end
+@interface Pagination : JSONModel
+
+@property (nonatomic) NSInteger page;
+@property (nonatomic) NSInteger per_page;
+@property (nonatomic) NSInteger total;
+@property (nonatomic) NSInteger total_pages;
+@property (nonatomic) NSMutableArray <UserData, Optional> *data;
 @end
 
 NS_ASSUME_NONNULL_END

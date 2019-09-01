@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+@class UserDAO;
 
 NS_ASSUME_NONNULL_BEGIN
+//Factory of a data access objects
 
 @interface DAOFactory : NSObject
+- (instancetype)initWithDBFilePath:(NSString *)path;
+- (UserDAO *)userDAO;
 
 @end
 

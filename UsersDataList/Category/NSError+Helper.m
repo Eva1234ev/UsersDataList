@@ -1,9 +1,8 @@
 //
 //  NSError+Helper.m
-//  CityQuest
 //
-//  Created by Hrachya Stepanyan on 3/23/16.
-//  Copyright © 2016 Hrachya Stepanyan. All rights reserved.
+//  Created by Eva on 31.08.2019.
+//  Copyright © 2019 Eva. All rights reserved.
 //
 
 #import "NSError+Helper.h"

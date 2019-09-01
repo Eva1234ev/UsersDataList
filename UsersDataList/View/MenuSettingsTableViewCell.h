@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MenuSettingsTableViewCell : UITableViewCell
-
+- (void)setInfo:(NSDictionary *)info;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <sqlite3.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol SQLiteDatabase
 
+@end
 @interface SQLiteDatabase : NSObject
-
+@property (strong, nonatomic) NSString *databasePath;
+@property (nonatomic) sqlite3 *DB;
 @end
 
 NS_ASSUME_NONNULL_END
