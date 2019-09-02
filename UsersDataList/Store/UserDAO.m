@@ -12,6 +12,16 @@
 #import <FMResultSet.h>
 
 
+
+// Query for the create table page
+static NSString * const kSQLCreatePage = @""
+"CREATE TABLE IF NOT EXISTS users ("
+"page INTEGER PRIMARY KEY AUTOINCREMENT, "
+"per_page INTEGER PRIMARY KEY AUTOINCREMENT, "
+"totale INTEGER PRIMARY KEY AUTOINCREMENT, "
+"total_pages INTEGER PRIMARY KEY AUTOINCREMENT, "
+");";
+
 // Query for the create table
 static NSString * const kSQLCreate = @""
 "CREATE TABLE IF NOT EXISTS users ("
@@ -80,13 +90,16 @@ static NSString * const kSQLDelete = @""
 - (BOOL)create {
     return [self.db executeUpdate:kSQLCreate];
 }
-
+// Create the table paging.
+- (BOOL)createPage {
+    return [self.db executeUpdate:kSQLCreatePage];
+}
 // Add user
 - (User *)add:(NSString *)email first:(NSString *)first_name last:(NSString *)last_name avatar:(NSString *)avatar {
     User *user = nil;
     if ([self.db executeUpdate:kSQLInsert, email, first_name, last_name, avatar]) {
-        NSInteger userid = [self.db lastInsertRowId];
-        user = [User userWithId:userid email:email first:first_name last:last_name avatar: avatar];
+        NSInteger id = [self.db lastInsertRowId];
+        user = [User userWithId:id email:email first:first_name last:last_name avatar: avatar];
     }
     
     return user;
@@ -120,7 +133,7 @@ static NSString * const kSQLDelete = @""
             user.first_name,
             user.last_name,
             user.avatar,
-            [NSNumber numberWithInteger:user.userid]];
+            [NSNumber numberWithInteger:user.id]];
 }
 
 @end

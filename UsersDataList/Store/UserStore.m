@@ -11,6 +11,7 @@
 #import "User.h"
 #import "UserCache.h"
 #import "UserDAO.h"
+#import "Pagination.h"
 
 @interface UserStore ()
 
@@ -45,6 +46,24 @@
 }
 
 
+- (void)addInDatabase:(Pagination*)p {
+    for(int i = 0 ;i < p.data.count ; i++){
+        
+        UserData *u = p.data[i];
+        User * user =[User userWithId:u.id email:u.email first:u.first_name last:u.last_name avatar:u.avatar];
+        [self add:user];
+    }
+    
+}
+- (void)removeAllDatabase:(Pagination*)p {
+    for(int i = 0 ; i < [self users].count; i++){
+        User *u = [self users][i];
+        User * user =[User userWithId:u.id email:u.email first:u.first_name last:u.last_name avatar:u.avatar];
+        [self remove:user];
+    }
+
+}
+
 - (BOOL)add:(User *)user {
     UserDAO *dao   = [self.daoFactory userDAO];
     
@@ -56,10 +75,11 @@
     return NO;
 }
 
+
 // Remove the new user
 - (BOOL)remove:(User *)user {
     UserDAO *dao = [self.daoFactory userDAO];
-    if ([dao remove:user.userid]) {
+    if ([dao remove:user.id]) {
         return [self.userCache remove:user];
     }
     

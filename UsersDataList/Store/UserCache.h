@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserCache : NSObject
-//Collection of author names.
+//Collection.
 @property (nonatomic, readonly) NSMutableArray *users;
 
 //Dictionary of user

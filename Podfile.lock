@@ -1,4 +1,5 @@
 PODS:
+  - ACFloatingTextfield-Objc (1.7)
   - CCBottomRefreshControl (0.5.2)
   - FMDB/FTS (2.7.5):
     - FMDB/standard
@@ -23,6 +24,7 @@ PODS:
   - SDWebImage/Core (5.0.6)
 
 DEPENDENCIES:
+  - ACFloatingTextfield-Objc
   - CCBottomRefreshControl
   - FMDB/FTS
   - JSONModel
@@ -32,6 +34,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ACFloatingTextfield-Objc
     - CCBottomRefreshControl
     - FMDB
     - JSONModel
@@ -40,6 +43,7 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
+  ACFloatingTextfield-Objc: 8780c7a0d96b2039d8a60d3461a4bbcd22e3faf3
   CCBottomRefreshControl: 389780b4488321c91d18f66a6da5ef9606df6de5
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
@@ -47,6 +51,6 @@ SPEC CHECKSUMS:
   "MMDrawerController+Storyboard": c98f86c0f32cdef1d466d19a7da3ad2fc6c6ac00
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
 
-PODFILE CHECKSUM: 1fd40521dabe5809ca6b0bfe98f8fd297a48ee04
+PODFILE CHECKSUM: 027a5372240eb79a5f08519acceb7818522b66c9
 
 COCOAPODS: 1.7.2

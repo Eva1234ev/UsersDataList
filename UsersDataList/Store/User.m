@@ -7,12 +7,12 @@
 //
 
 #import "User.h"
-#import "UserData.h"
+
 
 NSInteger const kUserIdNone = 0;
 @interface User()
 
-@property (nonatomic, readwrite)  NSInteger userid;
+@property (nonatomic, readwrite)  NSInteger id;
 @property (nonatomic, readwrite)  NSString *email;
 @property (nonatomic, readwrite)  NSString *first_name;
 @property (nonatomic, readwrite)  NSString *last_name;
@@ -21,15 +21,15 @@ NSInteger const kUserIdNone = 0;
 @end
 @implementation User
 
-+ (instancetype)userWithId:(NSInteger)userid email:(NSString *)email first:(NSString *)first_name last:(NSString *)last_name avatar:(NSString*) avatar{
++ (instancetype)userWithId:(NSInteger)id email:(NSString *)email first:(NSString *)first_name last:(NSString *)last_name avatar:(NSString*) avatar{
     
-    return [[User alloc] init:userid email:email first:first_name last:last_name avatar:avatar];
+    return [[User alloc] init:id email:email first:first_name last:last_name avatar:avatar];
 }
 
 - (instancetype)init:(NSInteger)userid email:(NSString *)email  first:(NSString *)first_name last:(NSString *)last_name avatar:(NSString *)avatar {
     self = [super init];
     if (self) {
-        self.userid  = userid;
+        self.id  = userid;
         self.email = email;
         self.first_name = first_name;
         self.last_name = last_name;

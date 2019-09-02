@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class DAOFactory,User;
+@class DAOFactory,User,Pagination;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserStore : NSObject
@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)add:(User *)user;
 - (BOOL)remove:(User *)user;
 - (BOOL)update:(User *)oldUser newUser:(User *)newUserk;
+- (void)addInDatabase:(Pagination*)p;
+- (void)removeAllDatabase:(Pagination*)p;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4F165A6A23332B31BCD9CAAD /* Pods_UsersDataListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227E3433617DA9BCA709B597 /* Pods_UsersDataListTests.framework */; };
 		9F94D54D9C7134C1BF8D6BF4 /* Pods_UsersDataList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D7584D70B4940434B57CCE /* Pods_UsersDataList.framework */; };
+		A60ECC0D231D4FAC004DDDB2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A60ECC0C231D4FAC004DDDB2 /* LoginViewController.m */; };
+		A60ECC10231D5393004DDDB2 /* ResourceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A60ECC0F231D5393004DDDB2 /* ResourceTableViewController.m */; };
+		A60ECC13231D5C6A004DDDB2 /* PageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A60ECC12231D5C6A004DDDB2 /* PageStore.m */; };
 		A6A7AB42231881F700C96365 /* SQLiteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A7AB41231881F700C96365 /* SQLiteDatabase.m */; };
 		A6A7AB4723188C8A00C96365 /* AppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A7AB4623188C8A00C96365 /* AppStore.m */; };
 		A6A7AB4A23188CB700C96365 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A7AB4923188CB600C96365 /* User.m */; };
@@ -22,7 +25,6 @@
 		A6A7AC47231AB17F00C96365 /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A7AC44231AB17F00C96365 /* NSDictionary+UrlEncoding.m */; };
 		A6A7AC48231AB17F00C96365 /* NSObject+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A7AC45231AB17F00C96365 /* NSObject+Validation.m */; };
 		A6DD78F9231543330079AF4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DD78F8231543330079AF4A /* AppDelegate.m */; };
-		A6DD78FC231543330079AF4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DD78FB231543330079AF4A /* ViewController.m */; };
 		A6DD78FF231543330079AF4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6DD78FD231543330079AF4A /* Main.storyboard */; };
 		A6DD7902231543330079AF4A /* UsersDataList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6DD7900231543330079AF4A /* UsersDataList.xcdatamodeld */; };
 		A6DD7904231543340079AF4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6DD7903231543340079AF4A /* Assets.xcassets */; };
@@ -40,6 +42,10 @@
 		A6DD79D2231816CC0079AF4A /* DrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DD79D1231816CC0079AF4A /* DrawViewController.m */; };
 		A6DD79E123181A0A0079AF4A /* MenuSettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DD79E023181A0A0079AF4A /* MenuSettingsTableViewCell.m */; };
 		A6DD79E623181A870079AF4A /* MenuRegistrSignInTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DD79E523181A870079AF4A /* MenuRegistrSignInTableViewCell.m */; };
+		A6E3E0A2231C9612001BB8C0 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E3E0A1231C9612001BB8C0 /* RegistrationViewController.m */; };
+		A6E3E0A8231CD91E001BB8C0 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E3E0A7231CD91E001BB8C0 /* UserViewController.m */; };
+		A6E3E0AB231D321D001BB8C0 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E3E0AA231D321C001BB8C0 /* AppManager.m */; };
+		A6E3E0AE231D4155001BB8C0 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E3E0AD231D4155001BB8C0 /* Page.m */; };
 		E50B7DDE467748EE4B2408D6 /* Pods_UsersDataListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D755B29203C220E97737CA /* Pods_UsersDataListUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +75,12 @@
 		5E3A4ECF333548BC91EC8F85 /* Pods-UsersDataListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersDataListUITests.debug.xcconfig"; path = "Target Support Files/Pods-UsersDataListUITests/Pods-UsersDataListUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		94BCDD611E417D53F8E29519 /* Pods-UsersDataListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersDataListUITests.release.xcconfig"; path = "Target Support Files/Pods-UsersDataListUITests/Pods-UsersDataListUITests.release.xcconfig"; sourceTree = "<group>"; };
 		96FCDA84C324AE571E627459 /* Pods-UsersDataList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersDataList.debug.xcconfig"; path = "Target Support Files/Pods-UsersDataList/Pods-UsersDataList.debug.xcconfig"; sourceTree = "<group>"; };
+		A60ECC0B231D4FAC004DDDB2 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A60ECC0C231D4FAC004DDDB2 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A60ECC0E231D5393004DDDB2 /* ResourceTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceTableViewController.h; sourceTree = "<group>"; };
+		A60ECC0F231D5393004DDDB2 /* ResourceTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceTableViewController.m; sourceTree = "<group>"; };
+		A60ECC11231D5C6A004DDDB2 /* PageStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageStore.h; sourceTree = "<group>"; };
+		A60ECC12231D5C6A004DDDB2 /* PageStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageStore.m; sourceTree = "<group>"; };
 		A6A7AB40231881F700C96365 /* SQLiteDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLiteDatabase.h; sourceTree = "<group>"; };
 		A6A7AB41231881F700C96365 /* SQLiteDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQLiteDatabase.m; sourceTree = "<group>"; };
 		A6A7AB4523188C8A00C96365 /* AppStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppStore.h; sourceTree = "<group>"; };
@@ -96,8 +108,6 @@
 		A6DD78F4231543330079AF4A /* UsersDataList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsersDataList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6DD78F7231543330079AF4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A6DD78F8231543330079AF4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A6DD78FA231543330079AF4A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A6DD78FB231543330079AF4A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A6DD78FE231543330079AF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6DD7901231543330079AF4A /* UsersDataList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UsersDataList.xcdatamodel; sourceTree = "<group>"; };
 		A6DD7903231543340079AF4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +140,14 @@
 		A6DD79E023181A0A0079AF4A /* MenuSettingsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuSettingsTableViewCell.m; sourceTree = "<group>"; };
 		A6DD79E423181A860079AF4A /* MenuRegistrSignInTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MenuRegistrSignInTableViewCell.h; path = /Users/eva/Desktop/UsersDataList/UsersDataList/View/MenuRegistrSignInTableViewCell.h; sourceTree = "<absolute>"; };
 		A6DD79E523181A870079AF4A /* MenuRegistrSignInTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MenuRegistrSignInTableViewCell.m; path = /Users/eva/Desktop/UsersDataList/UsersDataList/View/MenuRegistrSignInTableViewCell.m; sourceTree = "<absolute>"; };
+		A6E3E0A0231C9612001BB8C0 /* RegistrationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		A6E3E0A1231C9612001BB8C0 /* RegistrationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		A6E3E0A6231CD91D001BB8C0 /* UserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		A6E3E0A7231CD91E001BB8C0 /* UserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		A6E3E0A9231D321C001BB8C0 /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
+		A6E3E0AA231D321C001BB8C0 /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
+		A6E3E0AC231D4155001BB8C0 /* Page.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
+		A6E3E0AD231D4155001BB8C0 /* Page.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
 		B4D755B29203C220E97737CA /* Pods_UsersDataListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UsersDataListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -196,6 +214,8 @@
 				A6A7AB4F23188CEC00C96365 /* UserCache.m */,
 				A6A7AB5123188D0A00C96365 /* UserDAO.h */,
 				A6A7AB5223188D0A00C96365 /* UserDAO.m */,
+				A60ECC11231D5C6A004DDDB2 /* PageStore.h */,
+				A60ECC12231D5C6A004DDDB2 /* PageStore.m */,
 				A6A7AB40231881F700C96365 /* SQLiteDatabase.h */,
 				A6A7AB41231881F700C96365 /* SQLiteDatabase.m */,
 			);
@@ -216,6 +236,8 @@
 		A6A7AC07231AAC7400C96365 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A6E3E0A9231D321C001BB8C0 /* AppManager.h */,
+				A6E3E0AA231D321C001BB8C0 /* AppManager.m */,
 				A6A7AC0E231AAD2100C96365 /* WebServiceManager.h */,
 				A6A7AC0F231AAD2100C96365 /* WebServiceManager.m */,
 				A6A7AC28231AAF3300C96365 /* JSON.h */,
@@ -227,12 +249,12 @@
 		A6A7AC3F231AB17F00C96365 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A6A7AC43231AB17F00C96365 /* NSError+Helper.h */,
 				A6A7AC40231AB17F00C96365 /* NSError+Helper.m */,
 				A6A7AC41231AB17F00C96365 /* NSDictionary+UrlEncoding.h */,
-				A6A7AC42231AB17F00C96365 /* NSObject+Validation.h */,
-				A6A7AC43231AB17F00C96365 /* NSError+Helper.h */,
 				A6A7AC44231AB17F00C96365 /* NSDictionary+UrlEncoding.m */,
 				A6A7AC45231AB17F00C96365 /* NSObject+Validation.m */,
+				A6A7AC42231AB17F00C96365 /* NSObject+Validation.h */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -271,8 +293,6 @@
 				A6DD792D231551860079AF4A /* Controllers */,
 				A6DD78F7231543330079AF4A /* AppDelegate.h */,
 				A6DD78F8231543330079AF4A /* AppDelegate.m */,
-				A6DD78FA231543330079AF4A /* ViewController.h */,
-				A6DD78FB231543330079AF4A /* ViewController.m */,
 				A6DD792C231551350079AF4A /* Resources */,
 				A6DD7909231543340079AF4A /* main.m */,
 				A6DD7900231543330079AF4A /* UsersDataList.xcdatamodeld */,
@@ -312,6 +332,14 @@
 		A6DD792D231551860079AF4A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A6E3E0A6231CD91D001BB8C0 /* UserViewController.h */,
+				A6E3E0A7231CD91E001BB8C0 /* UserViewController.m */,
+				A60ECC0E231D5393004DDDB2 /* ResourceTableViewController.h */,
+				A60ECC0F231D5393004DDDB2 /* ResourceTableViewController.m */,
+				A60ECC0B231D4FAC004DDDB2 /* LoginViewController.h */,
+				A60ECC0C231D4FAC004DDDB2 /* LoginViewController.m */,
+				A6E3E0A0231C9612001BB8C0 /* RegistrationViewController.h */,
+				A6E3E0A1231C9612001BB8C0 /* RegistrationViewController.m */,
 				A6DD792E231551A30079AF4A /* UsersTableViewController.h */,
 				A6DD792F231551A30079AF4A /* UsersTableViewController.m */,
 				A6DD79CD2318162A0079AF4A /* MenuTableViewController.h */,
@@ -347,6 +375,8 @@
 		A6DD79582315CDB30079AF4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A6E3E0AC231D4155001BB8C0 /* Page.h */,
+				A6E3E0AD231D4155001BB8C0 /* Page.m */,
 				A6DD79592315D11A0079AF4A /* Pagination.h */,
 				A6DD795A2315D11A0079AF4A /* Pagination.m */,
 				A6DD795C2315D6860079AF4A /* UserData.h */,
@@ -577,31 +607,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6E3E0A8231CD91E001BB8C0 /* UserViewController.m in Sources */,
 				A6DD79612315D9DF0079AF4A /* UserResource.m in Sources */,
+				A60ECC10231D5393004DDDB2 /* ResourceTableViewController.m in Sources */,
 				A6A7AC46231AB17F00C96365 /* NSError+Helper.m in Sources */,
 				A6A7AB4723188C8A00C96365 /* AppStore.m in Sources */,
 				A6A7AB5023188CEC00C96365 /* UserCache.m in Sources */,
-				A6DD78FC231543330079AF4A /* ViewController.m in Sources */,
 				A6A7AB4A23188CB700C96365 /* User.m in Sources */,
 				A6DD7930231551A30079AF4A /* UsersTableViewController.m in Sources */,
 				A6A7AB5623188D2100C96365 /* DAOFactory.m in Sources */,
 				A6DD7934231551E10079AF4A /* UsersTableViewCell.m in Sources */,
+				A6E3E0AE231D4155001BB8C0 /* Page.m in Sources */,
 				A6DD7938231554580079AF4A /* UserListViewModel.m in Sources */,
 				A6A7AB5323188D0A00C96365 /* UserDAO.m in Sources */,
 				A6A7AB42231881F700C96365 /* SQLiteDatabase.m in Sources */,
 				A6DD79CF2318162A0079AF4A /* MenuTableViewController.m in Sources */,
+				A60ECC0D231D4FAC004DDDB2 /* LoginViewController.m in Sources */,
+				A60ECC13231D5C6A004DDDB2 /* PageStore.m in Sources */,
 				A6A7AC2A231AAF3300C96365 /* JSON.m in Sources */,
 				A6DD79E623181A870079AF4A /* MenuRegistrSignInTableViewCell.m in Sources */,
 				A6A7AC10231AAD2100C96365 /* WebServiceManager.m in Sources */,
 				A6DD7902231543330079AF4A /* UsersDataList.xcdatamodeld in Sources */,
 				A6DD795B2315D11A0079AF4A /* Pagination.m in Sources */,
 				A6A7AC47231AB17F00C96365 /* NSDictionary+UrlEncoding.m in Sources */,
+				A6E3E0AB231D321D001BB8C0 /* AppManager.m in Sources */,
 				A6DD79D2231816CC0079AF4A /* DrawViewController.m in Sources */,
 				A6DD79E123181A0A0079AF4A /* MenuSettingsTableViewCell.m in Sources */,
 				A6A7AB4D23188CD400C96365 /* UserStore.m in Sources */,
 				A6DD790A231543340079AF4A /* main.m in Sources */,
 				A6A7AC48231AB17F00C96365 /* NSObject+Validation.m in Sources */,
 				A6DD795E2315D6860079AF4A /* UserData.m in Sources */,
+				A6E3E0A2231C9612001BB8C0 /* RegistrationViewController.m in Sources */,
 				A6DD78F9231543330079AF4A /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

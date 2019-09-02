@@ -7,7 +7,7 @@
 //
 
 #import "SQLiteDatabase.h"
-\
+
 
 @implementation SQLiteDatabase
 - (instancetype) initDatabase

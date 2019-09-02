@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UsersTableViewCell : UITableViewCell
+
 -(void)userData:(UserData *) user;
+
 @end
 NS_ASSUME_NONNULL_END

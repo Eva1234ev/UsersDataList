@@ -16,7 +16,9 @@
 + ( NSDictionary *) getDataFrom:(NSString *)url;
 + (void)getUsersListWithCompletion:(NSString*)page withCompletion:( void (^) (id response, NSError *error))handler;
 + (void)createUserWithCompletion:(NSDictionary *)params withCompletion:( void (^) (id response, NSError *error))handler;
-
-
-
++ (void)updateUserWithCompletion:(NSDictionary *)params withCompletion:( void (^) (id response, NSError *error))handler;
++ (void)changeUserWithCompletion:(NSDictionary *)params withCompletion:( void (^) (id response, NSError *error))handler;
++ (void)loginUserWithCompletion:(NSDictionary *)params withCompletion:( void (^) (id response, NSError *error))handler;
++ (void)registrUserWithCompletion:(NSDictionary *)params withCompletion:( void (^) (id response, NSError *error))handler;
++ (void)logoutUserWithCompletion:(NSDictionary *)params withCompletion:( void (^) (id response, NSError *error))handler;
 @end

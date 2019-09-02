@@ -10,6 +10,7 @@
 #import "NSDictionary+UrlEncoding.h"
 #import "JSON.h"
 #import "JSONModel.h"
+#import "AppManager.h"
 
 static NSString *apiUrl = @"https://reqres.in/api/";
 #define timeStamp [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000]
@@ -36,8 +37,7 @@ static NSString *apiUrl = @"https://reqres.in/api/";
     NSError *e = nil;
     NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:jsonData options: NSJSONReadingMutableContainers error: &e];
-    
-    
+
     return JSON;
 }
 
@@ -48,9 +48,9 @@ static NSString *apiUrl = @"https://reqres.in/api/";
     
     NSMutableURLRequest *request = [self requestForPostMethod:method withParams:[params JSONString]];
     
-    // [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    //[request setValue:[AppManager sharedManager].token forHTTPHeaderField:@"authorization"];
+     [request setValue:[AppManager sharedManager].token forHTTPHeaderField:@"authorization"];
     
     [self executeRequest:request withCompletion:handler];
     

@@ -10,6 +10,7 @@ target 'UsersDataList' do
     pod 'MMDrawerController+Storyboard'
     pod 'SDWebImage'
     pod 'FMDB/FTS'
+    pod 'ACFloatingTextfield-Objc'
   # Pods for UsersDataList
 
   target 'UsersDataListTests' do

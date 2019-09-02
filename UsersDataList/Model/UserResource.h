@@ -10,7 +10,8 @@
 #import <JSONModel/JSONModel.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserResource : NSObject
+@interface UserResource : JSONModel
+
 
 @property (nonatomic) NSInteger id;
 @property (nonatomic) NSString *name;

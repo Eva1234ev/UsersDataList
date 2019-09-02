@@ -15,10 +15,10 @@
 #import "UIViewController+MMDrawerController.h"
 #import "WebServiceManager.h"
 #import "Pagination.h"
-#import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
-@interface UsersTableViewController ()
+
+
+@interface UsersTableViewController ()<UserListViewModelDelegate>
 {
-    Pagination * pagination;
     UIView * footerView;
     float heightCell;
 }
@@ -31,35 +31,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
-//    NSDictionary *params = @{@"name":@"Anie",
-//                             @"job":@"Teacher",
-//                             @"year": @(2001),
-//                             @"email": @"eeeee.weaver@reqres.in",
-//                             @"first_name": @"Jannet",
-//                             @"last_name": @"Jackson",
-//                             @"avatar": @"https://pbs.twimg.com/profile_images/1006266234181210117/oedmUmVc.jpg"
-//                             };
-//
-//    [WebServiceManager createUserWithCompletion:params
-//
-//                   withCompletion:^(id response, NSError *error) {
-//                      // NSLog(@"")
-//                       if (!error) {
-//
-//                           }
-//
-//
-//
-//                   }];
-//
-
-
     self.userViewModel = [[UserListViewModel alloc] initList];
-    heightCell = self.userTableView.frame.size.height/self.userViewModel.pagination.per_page;
+    self.userViewModel.delegate= self;
     [self initFooterViewActivity];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userListNotification:) name:UserListDidChangeNotification object:nil];
-    
+
+
 }
 
 -(void)initFooterViewActivity
@@ -73,17 +49,14 @@
     actInd = nil;
 }
 
-
--(void) userListNotification:(NSNotification*)notification{
-    Pagination * pagination = [[Pagination alloc] initWithDictionary: [notification.userInfo objectForKey:@"UserListDidChangeInKey"] error:nil];
-    self.userViewModel.pagination = pagination;
-    [self.userTableView.refreshControl endRefreshing];
+-(void)updatePageData:(UserListViewModel *)userModelView{
+    self.userViewModel = userModelView;
+    heightCell = self.userTableView.frame.size.height/self.userViewModel.pagination.per_page;
     [(UIActivityIndicatorView *)[footerView viewWithTag:10] stopAnimating];
     [self.userTableView reloadData];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSIndexPath* indexPath = [NSIndexPath indexPathForRow: ([self.tableView numberOfRowsInSection:([self.tableView numberOfSections]-1)]-1) inSection:([self.tableView numberOfSections]-1)];
-        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-    });
+    //    //    dispatch_async(dispatch_get_main_queue(), ^{
+    //    //        NSIndexPath* indexPath = [NSIndexPath indexPathForRow: ([self.tableView numberOfRowsInSection:([self.tableView numberOfSections]-1)]-1) inSection:([self.tableView numberOfSections]-1)];
+    //    //        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPositio
 }
 
 #pragma mark - scrolling
@@ -101,7 +74,7 @@
     BOOL endOfTable = (scrollView.contentOffset.y >= (( self.userViewModel.pagination.data.count * heightCell) - scrollView.frame.size.height));
     if(self.userViewModel.pagination.page != self.userViewModel.pagination.total_pages && endOfTable )
     {
-         [self.userViewModel makeRequest];
+         [self.userViewModel updateUsersRequest];
         
     }
 }
@@ -136,8 +109,8 @@
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
--(void) dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+
+
+
 
 @end

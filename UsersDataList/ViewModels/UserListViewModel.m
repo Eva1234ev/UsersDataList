@@ -17,15 +17,12 @@
 #import "UserStore.h"
 
 
-NSString* const UserListDidChangeNotification = @"UserListDidChangeNotification";
-NSString* const UserListDidChangeInKey = @"UserListDidChangeInKey";
-
-
 @interface UserListViewModel ()
 {
     int page;
 }
 @property (strong,nonatomic)NSMutableArray* users;
+@property (nonatomic, strong, readwrite) Pagination *pagination;
 @end
 @implementation UserListViewModel
 
@@ -35,83 +32,86 @@ NSString* const UserListDidChangeInKey = @"UserListDidChangeInKey";
     if (self) {
         page = 1;
         self.users = [[NSMutableArray alloc] init];
-        [self makeRequest];
+        [self updateUsersRequest];
        
     }
     return self;
 }
 
+
 # pragma mark - web service methods
 
--(void) makeRequest {
-    
-   // NSString *strUrl = [ @"https://reqres.in/api/users?page=" stringByAppendingString: [NSString stringWithFormat:@"%d",page]];
+-(void) updateUsersRequest {
+    UserStore *store  = [self userStore];
+    if(store.users.count > 0) {
+        
+        
+         [self.delegate updatePageData:self];
+    }
+   
     [WebServiceManager getUsersListWithCompletion: [NSString stringWithFormat:@"%d", page] withCompletion:^(id result, NSError *error) {
         self->page++;
-        NSDictionary * d = result;
-        self.pagination = [[Pagination alloc] initWithDictionary:d error:nil];
+        self.pagination = [[Pagination alloc] initWithDictionary:result error:nil];
         [self.users addObjectsFromArray: self.pagination.data];
         [self.pagination.data removeAllObjects];
         [self.pagination.data addObjectsFromArray:self.users];
-        
-        //  [self addInDatabase];
-        
-        NSDictionary * dkey = [NSDictionary dictionaryWithObject:[WebServiceManager getDataFrom:strUrl] forKey:UserListDidChangeInKey] ;
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"UserListDidChangeNotification" object:nil userInfo:dkey];
-    }];
+         UserStore *store  = [self userStore];
+        if(store.users.count > 0 )
+        {
 
+          [store removeAllDatabase:self.pagination];
+          [store addInDatabase:self.pagination];
+            
+        }
+//        [self addInDatabase];
+       //  [ UserStore *store  = [self userStore] remove:book]
+        [self.delegate updatePageData:self];
+        
+    }];
+    
+  
 }
 
+
+//- (void)addInDatabase:(Pagination*)p {
+//    for(int i = 0 ;i < p.data.count ; i++){
 //
-//- (void)addInDatabase {
-//    for(int i=0 ;i< [self.pagination.data count];i++){
-//   User *  u =    [User userWithId:[[self.pagination.data objectAtIndex:i] valueForKey:@"id"]
-//                  email:[[self.pagination.data objectAtIndex:i]valueForKey:@"email"]
-//                  first:[[self.pagination.data objectAtIndex:i]valueForKey:@"first_name"]
-//                   last:[[self.pagination.data objectAtIndex:i]valueForKey:@"last_name"]
-//                 avatar:[[self.pagination.data objectAtIndex:i]valueForKey:@"avatar"]];
-//        UserStore *store    = [self userStore];
-//        BOOL  succeeded = NO;
-//        
-//        //if (u.userid == kUserIdNone) {
-//            succeeded = [store add:u];
-//
-//        
+//        UserData *u = p.data[i];
+//        User * user =[User userWithId:u.id email:u.email first:u.first_name last:u.last_name avatar:u.avatar];
+//        UserStore *store  = [self userStore];
+//        [store add:user];
 //    }
-//     UserStore *store  = [self userStore];
-//    
-//    
-//}
 //
-////Get user by index
-//- (User *)userAtIndexPath:(NSIndexPath *)indexPath {
+//}
+//- (void)removeAllDatabase:(Pagination*)p {
+//    for(int i = 0 ; i < 29; i++){
+//        UserStore *store  = [self userStore];
+//        User *u = store.users[i];
+//        User * user =[User userWithId:u.id email:u.email first:u.first_name last:u.last_name avatar:u.avatar];
+//       [store remove:user];
+////        UserData *u = p.data[i];
+////        User * user =[User userWithId:u.id email:u.email first:u.first_name last:u.last_name avatar:u.avatar];
+////        UserStore *store  = [self userStore];
+////        [store remove:user];
+//    }
 //    UserStore *store  = [self userStore];
-//    NSString  *user = [store.users objectAtIndex:indexPath.section];
-//    NSArray   *users  = [store.usersDictionary objectForKey:user];
-//    
-//    return [users objectAtIndex:indexPath.row];
-//}
 //
-////Get the user store.
-//- (UserStore *)userStore {
-//    AppDelegate *app   = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    return app.appStore.userStore;
 //}
 
+//Get user by index
+- (User *)userAtIndexPath:(NSIndexPath *)indexPath {
+    UserStore *store  = [self userStore];
+    NSString  *user = [store.users objectAtIndex:indexPath.section];
+    NSArray   *users  = [store.usersDictionary objectForKey:user];
+    
+    return [users objectAtIndex:indexPath.row];
+}
 
+//Get the user store.
+- (UserStore *)userStore {
+    AppDelegate *app   = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    return app.appStore.userStore;
+}
 
-//
-//- (NSUInteger)numberOfUsersInSection {
-//    return self.users.count;
-//}
-//
-//- (NSString *)emailUserAtIndexPath:(NSIndexPath *)indexPath{
-//    return [[self.users objectAtIndex:indexPath.row] valueForKey:@"email"];
-//}
-//
-//- (NSString *)fullNameAtIndexPath:(NSIndexPath *)indexPath {
-//    return [NSString stringWithFormat:@"%@ %@",[[self.users objectAtIndex:indexPath.row] valueForKey:@"first_name"],[[self.users objectAtIndex:indexPath.row] valueForKey:@"last_name"]];
-//}
 
 @end

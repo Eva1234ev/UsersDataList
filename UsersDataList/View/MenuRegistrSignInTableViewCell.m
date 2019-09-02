@@ -11,7 +11,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+ 
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,6 +20,9 @@
     // Configure the view for the selected state
 }
 - (IBAction)registartionButtonAction:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(registrationProfile)]) {
+        [self.delegate registrationProfile];
+    }
 }
 
 - (IBAction)signInButtonAction:(UIButton *)sender {
