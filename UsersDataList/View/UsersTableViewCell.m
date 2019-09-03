@@ -31,8 +31,8 @@
     // Configure the view for the selected state
 }
 -(void)userData:(UserData *) user{
-   
-    self.userEmailLabel.text= user.email;
+    
+    self.userEmailLabel.text = user.email;
     self.userFirstLastNameLabel.text= [NSString stringWithFormat:@"%@ %@",user.first_name, user.last_name];
     [self.userAvatarImageView sd_setImageWithURL:[NSURL URLWithString:user.avatar]
                   placeholderImage:[UIImage imageNamed:@"placeholder.png"]];

@@ -8,7 +8,7 @@
 #import "NSError+Helper.h"
 
 
-#define kErrorDomain      @"com.Realizit"
+#define kErrorDomain      @"com.eva"
 #define kUnknownErrorCode 10001
 
 

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Pagination : Page
 
-@property (nonatomic) NSMutableArray <UserData*> *data;
+@property (nonatomic) NSMutableArray <UserData> *data;
 @end
 
 NS_ASSUME_NONNULL_END

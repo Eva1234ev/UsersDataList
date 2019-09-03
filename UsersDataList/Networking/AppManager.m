@@ -2,8 +2,8 @@
 //  AppManager.m
 //  Arajark
 //
-//  Created by Suren Poghosyan on 12/28/17.
-//  Copyright © 2017 Realizeit LLC. All rights reserved.
+//  Created by Eva on 29.08.2019.
+//  Copyright © 2019 Eva. All rights reserved.
 //
 
 #import "AppManager.h"
